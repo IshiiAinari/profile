@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" name="viewport">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
     <title>Nguyễn Tấn Lợi</title>
     <link rel="icon" type="image/x-icon" href="source/icon.png">
 
@@ -13,35 +14,60 @@
     <meta name="author" content="Nguyễn Tấn Lợi">
     <meta name="keywords" content="Nguyễn Tấn Lợi, gn027c, trang cá nhân, profile, bio, ishisi ainari, ishii ainari">
     <meta name="theme-color" content="#4324b3">
+    <link rel="canonical" href="https://ishiiainari.github.io/profile/">
 
     <!-- Open Graph (Facebook, Discord, Zalo, ...) -->
+    <!-- <meta property="og:image:height" content="600"> -->
+    <meta property="og:image:type" content="image/jpg">
+    <!-- <meta property="og:image:width" content="600"> -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Github">
+
     <meta property="og:title" content="Nguyễn Tấn Lợi">
     <meta property="og:description" content="Nhấp vào đường link để xem chi tiết!">
     <meta property="og:image" content="https://github.com/IshiiAinari/profile/blob/main/source/banner.png">
     <meta property="og:url" content="https://ishiiainari.github.io/profile/">
-    <meta property="og:type" content="website">
+    <meta property="og:url:secure_url" content="https://ishiiainari.github.io/profile/">
+    <meta property="og:updated_time" content="1713348676000">
+    <meta property="og:type" content="store">
+    <meta property="profile:username" content="gn027c">
 
-    <!-- Twitter Card (X) -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Nguyễn Tấn Lợi">
     <meta name="twitter:description" content="Nhấp vào đường link để xem chi tiết!">
     <meta name="twitter:image" content="https://github.com/IshiiAinari/profile/blob/main/source/banner.png">
+    <meta name="twitter:domain" content="Github">
 
+    <!-- Snapchat -->
+    <meta property="snapchat:sticker" content="https://linktr.ee/sticker/gn027c.png">
+    <script id="snapchat-share-button" src="https://sdk.snapkit.com/js/v1/create.js"></script>
+    <meta property="snapchat:app_id" content="5a19c0c4-817e-46e3-a36b-aed9cdde4eec">
+    
     <style>
         /* ---------------------- SETTING ---------------------- */
         /* Ẩn thanh cuộn trên Chrome, Edge, Safari */
-        ::-webkit-scrollbar {
-            display: none;
+        :root {
+            --vh: 1vh;
         }
 
+        /* Reset CSS */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Base Styles */
         html {
+            scrollbar-width: none;
             -webkit-text-size-adjust: 100%;
         }
 
-        body {
-            -ms-overflow-style: none;
+        ::-webkit-scrollbar {
+            display: none;
         }
-
         /* ---------------------- TAILWAR ---------------------- */
         /* Ngăn chọn văn bản */
         .no-select {
@@ -62,9 +88,7 @@
             margin: 20px auto;
             background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
             border-radius: 5px;
-            margin: 20px auto;
-            /* Canh giữa */
-
+            margin: 20px auto; /* Canh giữa */
         }
 
         /* ---------------------- WEBSITE ---------------------- */
@@ -77,11 +101,12 @@
             font-family: 'Segoe UI', system-ui, sans-serif;
             background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
             min-height: 100vh;
+            min-height: calc(var(--vh, 1vh) * 100);
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             color: white;
-            padding-bottom: 100px;
+            padding: 1rem;
         }
 
         /* ---------------------- BACKGROUND ---------------------- */
@@ -97,7 +122,6 @@
             color: #fff;
             font-size: 50px;
         }
-
 
         .area {
             background: radial-gradient(ellipse at bottom, #223340 0%, #161644 100%);
@@ -205,8 +229,6 @@
             animation-duration: 11s;
         }
 
-
-
         @keyframes animate {
 
             0% {
@@ -222,7 +244,6 @@
             }
 
         }
-
 
         /* ---------------------- PROFILE ---------------------- */
         /* Đặt giá trị mặc định */
@@ -259,10 +280,9 @@
 
         /* Nội dung website */
         .container {
-            max-width: 28rem;
             width: 100%;
-            padding: 1rem;
-            margin-top: 120px;
+            max-width: 28rem;
+            margin: 2rem auto;
         }
 
         /* Profile Card */
@@ -290,15 +310,12 @@
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
             border-radius: 1.5rem;
-            padding: 2rem;
-            position: relative;
+            padding: 1.5rem;
             border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
             overflow: hidden;
-
-            /* Hiệu ứng viền phát sáng */
             animation: glowing-border 4s infinite alternate;
         }
-
 
         .banner-wrapper {
             position: absolute;
@@ -310,10 +327,8 @@
 
         .banner {
             width: 100%;
-            min-height: 120px;
-            max-height: 150px;
+            height: clamp(100px, 30vw, 150px);
             object-fit: cover;
-            filter: brightness(0.6);
         }
 
         .avatar-wrapper {
@@ -323,13 +338,9 @@
         }
 
         .avatar {
-            width: 120px;
-            height: 120px;
+            width: clamp(80px, 25vw, 120px);
+            height: clamp(80px, 25vw, 120px);
             border-radius: 50%;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            object-fit: cover;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
         }
 
@@ -338,8 +349,9 @@
         }
 
         header h1 {
+            font-size: calc(1.5rem + 1vw);
+            margin: 1rem 0;
             text-align: center;
-            margin-bottom: 0.5rem;
         }
 
         header p {
@@ -360,11 +372,8 @@
         }
 
         .sub-text {
+            font-size: calc(0.8rem + 0.3vw);
             color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-            animation: blinkCursor 0.8s infinite;
-            overflow: hidden;
-            white-space: nowrap;
         }
 
         /* Discord Card */
@@ -413,9 +422,9 @@
         /* Social Grid */
         .social-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
             margin: 2rem 0;
+            grid-template-columns: repeat(2, minmax(120px, 1fr));
         }
 
         .social-link {
@@ -468,6 +477,7 @@
 
         /* Payment Button */
         .payment-button {
+            font-size: .8rem;
             width: 100%;
             padding: 16px;
             border-radius: 12px;
@@ -844,6 +854,26 @@
         window.onload = function() {
             window.focus();
         };
+
+        // Viewport Height Correction
+        function setViewportHeight() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        window.addEventListener('resize', setViewportHeight);
+        setViewportHeight();
+
+        // Touch Device Detection
+        const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+        // Mobile Interaction Adjustments
+        if(isTouchDevice) {
+            document.documentElement.style.setProperty('--hover-effect', 'none');
+            document.querySelectorAll('a, button').forEach(el => {
+                el.style.touchAction = 'manipulation';
+            });
+        }
+
         // ---------------------- TYPING ----------------------
         class TxtType {
             constructor(el, toRotate, period) {
@@ -925,11 +955,19 @@
             }
         });
         
+        // Hàm bật tắt nhạc
         function togglePlay() {
-            if (audio.paused) {
+            const audio = document.getElementById('audioPlayer');
+            const playIcon = document.getElementById('playIcon');
+            
+            if(audio.paused) {
                 audio.play();
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
             } else {
                 audio.pause();
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
             }
         }
 
