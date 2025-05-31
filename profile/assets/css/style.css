@@ -1,0 +1,963 @@
+/* ---------------------- SETTING ---------------------- */
+/* Ẩn thanh cuộn trên Chrome, Edge, Safari */
+:root {
+    --vh: 1vh;
+}
+
+/* Reset CSS */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Base Styles */
+html {
+    scrollbar-width: none;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+/* ---------------------- TAILWAR ---------------------- */
+/* Ngăn chọn văn bản */
+.no-select {
+    user-select: none;
+    pointer-events: none;
+    -webkit-user-select: none;
+    /* Hỗ trợ IE, Edge */
+    -moz-user-select: none;
+    /* Hỗ trợ Chrome, Safari */
+    -ms-user-select: none;
+    /* Hỗ trợ Firefox */
+}
+
+.seperate {
+    display: block;
+    height: 2px;
+    width: 80%;
+    margin: 20px auto;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    border-radius: 5px;
+    margin: 20px auto; /* Canh giữa */
+}
+
+/* ---------------------- WEBSITE ---------------------- */
+html {
+    line-height: 1.5;
+    scrollbar-width: none;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 1rem;
+}
+
+/* ---------------------- BACKGROUND ---------------------- */
+.context {
+    width: 100%;
+    position: absolute;
+    top: 50vh;
+    z-index: -1;
+}
+
+.context h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+}
+
+.area {
+    background: radial-gradient(ellipse at bottom, #223340 0%, #161644 100%);
+    background: -webkit-radial-gradient(ellipse at bottom, #471584 0%, #610c41 100%);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow: hidden;
+    animation: colorPulse 15s ease infinite;
+}
+
+@keyframes colorPulse {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    50% {
+        filter: hue-rotate(30deg);
+    }
+    100% {
+        filter: hue-rotate(0deg);
+    }
+}
+
+.circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.circles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    animation: float 25s linear infinite;
+    bottom: -150px;
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 0;
+        border-radius: 10%;
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(-50px) rotate(45deg) scale(1.2);
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(-800px) rotate(675deg) scale(0.8);
+    }
+    100% {
+        transform: translateY(-1000px) rotate(720deg) scale(0.5);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+/* Thêm các hình dạng mới cho background */
+.circles li:nth-child(even) {
+    background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    width: 15px;
+    height: 15px;
+    animation-duration: 30s;
+}
+
+.circles li:nth-child(3n) {
+    background: linear-gradient(-45deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+    width: 25px;
+    height: 25px;
+    animation-duration: 35s;
+    animation-delay: 2s;
+}
+
+.circles li:nth-child(5n) {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    animation-duration: 40s;
+    animation-delay: 5s;
+}
+
+/* ---------------------- PROFILE ---------------------- */
+/* Đặt giá trị mặc định */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Màn hình chờ */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loading-screen.fade-out {
+    opacity: 0;
+    transform: scale(1.2);
+}
+
+.loading-content {
+    font-family: monospace;
+    font-size: 1rem;
+    color: #1a1a1a;
+    position: relative;
+    white-space: pre;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.loading-content::before {
+    content: ' ___    _    _ _     _   _               _ \a |_ _|__| |_ (_|_)   /_\\ (_)_ _  __ _ _ _(_)\a  | |(_-< \' \\| | |  / _ \\| | \' \\/ _` | \'_| |\a |___/__/_||_|_|_| /_/ \\_\\_|_||_\\__,_|_| |_|\a                                             ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: pre;
+    background: linear-gradient(
+        40deg,
+        #800080,
+        #ff69b4,
+        #00ffff,
+        #ff69b4,
+        #800080
+    );
+    background-size: 400% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: loading-wave 10s linear infinite;
+    will-change: background-position;
+}
+
+@keyframes loading-wave {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Nội dung website */
+.container {
+    width: 100%;
+    max-width: 28rem;
+    margin: 2rem auto;
+}
+
+/* Profile Card */
+@keyframes glowing-border {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.3),
+            0 0 10px rgba(255, 255, 255, 0.2),
+            0 0 15px rgba(255, 255, 255, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+            0 0 15px rgba(255, 255, 255, 0.4),
+            0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    100% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.3),
+            0 0 10px rgba(255, 255, 255, 0.2),
+            0 0 15px rgba(255, 255, 255, 0.1);
+    }
+}
+
+.profile-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+    animation: glowing-border 4s infinite alternate;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.banner-wrapper {
+    position: absolute;
+    inset: 0;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+.banner {
+    width: 100%;
+    height: clamp(100px, 30vw, 150px);
+    object-fit: cover;
+}
+
+.avatar-wrapper {
+    position: relative;
+    margin-top: 70px;
+    text-align: center;
+}
+
+.avatar {
+    width: clamp(80px, 25vw, 120px);
+    height: clamp(80px, 25vw, 120px);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.avatar:hover {
+    transform: scale(1.1) rotate(5deg);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+header h1 {
+    font-size: calc(1.5rem + 1vw);
+    margin: 1rem 0;
+    text-align: center;
+}
+
+header p {
+    text-align: center;
+    margin-bottom: 1.5rem;
+
+}
+
+.typewrite>.wrap {
+    border-right: 1.5px solid rgba(196, 196, 196, 0.2);
+    animation: blinkCursor 1.2s infinite;
+}
+
+@keyframes blinkCursor {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.sub-text {
+    font-size: calc(0.8rem + 0.3vw);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Discord Card */
+.discord-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    margin: 1.5rem 0;
+    min-height: 60px;
+    /* Đảm bảo không quá nhỏ */
+    box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.2);
+    position: relative;
+}
+
+.discord-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    padding: 2px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.discord-card:hover {
+    transform: translateY(-3px);
+}
+
+.discord-avatar {
+    width: auto;
+    height: 100%;
+    max-height: 80px;
+    /* Giới hạn tối đa */
+    border-radius: 30%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    overflow: hidden;
+}
+
+.discord-card:hover .discord-avatar {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.discord-card div {
+    flex: 1;
+    min-width: 0;
+}
+
+.discord-name {
+    font-size: 1rem;
+    font-weight: bold;
+    white-space: normal;
+    word-break: break-word;
+    background: linear-gradient(90deg, #fff, #e0e0e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 300% 100%;
+    animation: discord-wave 2s linear infinite;
+}
+
+@keyframes discord-wave {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.discord-invite {
+    position: relative;
+    display: inline-block;
+}
+
+.discord-invite::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.discord-invite:hover::after {
+    transform: scaleX(1);
+}
+
+/* Social Grid */
+.social-grid {
+    display: grid;
+    gap: 1rem;
+    margin: 2rem 0;
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    justify-content: flex-start;
+    /* Đảm bảo icon vẫn ở bên trái */
+    overflow: hidden;
+    position: relative;
+}
+
+.social-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.social-link:hover::before {
+    left: 100%;
+}
+
+.social-link span {
+    flex: 1;
+    /* Để chữ tự mở rộng */
+    text-align: center;
+    /* Căn giữa chữ */
+}
+
+.social-link i {
+    font-size: 1.2rem;
+}
+
+.discord {
+    background: linear-gradient(135deg, #343bb7, #3d1ca254);
+}
+
+.facebook {
+    background: linear-gradient(135deg, #4772c9, #1b88bba0);
+}
+
+.youtube {
+    background: linear-gradient(135deg, #d43434, #d01d14a0);
+}
+
+.github {
+    background: linear-gradient(135deg, #454a56, #57657da0);
+}
+
+/* Payment Button */
+.payment-button {
+    font-size: .8rem;
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    background: linear-gradient(-45deg, #ce5489, #9e2fd2, #ce5489);
+    background-size: 200% 200%;
+    animation: gradientBG 5s ease infinite;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.payment-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -50%;
+    }
+    100% {
+        left: 150%;
+    }
+}
+
+.payment-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(206, 84, 137, 0.3);
+}
+
+.payment-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(206, 84, 137, 0.2);
+}
+
+.payment-button i {
+    transition: transform 0.3s ease;
+}
+
+.payment-button:hover i {
+    transform: rotate(15deg) scale(1.2);
+}
+
+/* Music Control Styles */
+.music-toggle {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.music-toggle:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.music-toggle:not(:hover) .volume-container {
+    transition-delay: .3s;
+}
+
+.music-toggle i {
+    color: white;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.music-toggle.playing i {
+    animation: musicNote 1s ease infinite;
+}
+
+@keyframes musicNote {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+/* Volume Control */
+.volume-container {
+    position: absolute;
+    left: 4.5rem;
+    top: 50%;
+    transform: translateY(-50%) translateX(-10px);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    padding: 1rem 1.2rem;
+    border-radius: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 2s ease, transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: max-content;
+    min-width: 160px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.volume-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.volume-icon i {
+    color: white;
+    font-size: 1.1rem;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.volume-slider-container {
+    position: relative;
+    width: 110px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.volume-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.volume-bar:hover {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.volume-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #5d8ef7, #4378d5);
+    border-radius: inherit;
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-shadow: 0 1px 3px rgba(67, 120, 213, 0.3);
+}
+
+.volume-handle {
+    width: 16px;
+    height: 16px;
+    background: white;
+    border: 2px solid #4378d5;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    cursor: grab;
+    transition: all 0.2s ease;
+    z-index: 1;
+}
+
+.volume-handle:hover {
+    transform: translate(-50%, -50%) scale(1.15);
+    box-shadow: 0 4px 15px rgba(67, 120, 213, 0.4);
+    border-color: #5d8ef7;
+}
+
+.volume-handle:active {
+    cursor: grabbing;
+    transform: translate(-50%, -50%) scale(0.95);
+    box-shadow: 0 2px 10px rgba(67, 120, 213, 0.6);
+    background: #f8f9fa;
+}
+
+/* Popup Styles (Thông tin thanh toán) */
+/* Popup Overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.popup-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Popup Content */
+.popup-content {
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);
+    transition: transform 0.4s ease;
+    width: 500px;
+    cursor: default;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Khi mở popup */
+.popup-overlay.show .popup-content {
+    transform: translateY(0);
+    background-color: rgba(105, 105, 105, 0.1);
+    backdrop-filter: blur(30px);
+    max-width: 90%;
+}
+
+/* Khi ẩn popup */
+.popup-overlay.hide .popup-content {
+    transform: translateY(-20px);
+}
+
+.close-popup {
+    position: relative;
+    background-color: transparent;
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+    width: fit-content;
+    transform: translateY(-10px);
+    font-size: 16px;
+}
+
+.close-popup:hover {
+    transform: scale(1.05);
+    transform: translateY(-10px);
+}
+
+.popup-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+}
+
+.payment-option {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #4378d5, #2c5bb9);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.payment-option:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(67, 120, 213, 0.4);
+}
+
+.payment-option::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: 0.5s;
+}
+
+.payment-option:hover::after {
+    left: 100%;
+}
+
+.qr-code {
+    background-color: rgba(255, 255, 255, 1);
+    padding: 20px;
+    margin: 20px;
+    height: 70%;
+    width: 70%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.qr-code:hover {
+    transform: scale(1.05);
+}
+
+/* ---------------------- MUSIC POPUP ---------------------- */
+#musicPopupOverlay {
+    position: fixed;
+    bottom: -100px !important; /* Start from below the viewport */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    z-index: 10000;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    width: fit-content;
+    max-height: fit-content;
+}
+
+#musicPopupOverlay.show {
+    bottom: 100px !important;
+    opacity: 1;
+    visibility: visible;
+}
+
+#musicPopupOverlay.hide {
+    bottom: -100px !important;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.music-popup {
+    color: white;
+}
+
+.music-popup h2 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.music-popup-buttons {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+.music-popup-button {
+    padding: 0.5rem 1.5rem;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-width: 80px;
+}
+
+/* Style cho nút Yes */
+.music-popup-button:first-child {
+    background: #c13cc372;
+    border: 2px solid #815582;
+}
+
+/* Style cho nút No */
+.music-popup-button:last-child {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.music-popup-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 21, 75, 0.3);
+}
+
+.music-popup-button:first-child:hover {
+    background: #c13cc3a1;
+    border-color: #9b689b;
+}
+
+.music-popup-button:last-child:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.music-popup-button:active {
+    transform: translateY(0);
+}

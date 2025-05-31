@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace Services</title>
+    <style>
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            color: #f0f5fa;
+            background: #0b1a33;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: scroll;
+            touch-action: none;
+        }
+        mouseanimation {
+            z-index: 99;
+            position: absolute;
+            border-radius:50%;
+            left: 0;
+            top: 0;
+        }
+        a { color: #68a0cf; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { width: 90%; max-width: 1200px; margin: 2rem auto; }
+        h1, h2 { margin-bottom: 1rem; }
+        h1 { font-size: 2.5rem; text-align: center; color: #aad4ff; }
+        /* Navbar */
+        nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
+        nav a { font-weight: bold; padding: 0.5rem 1rem; border-radius: 4px; transition: background 0.3s; }
+        nav a:hover { background: rgba(255,255,255,0.1); }
+        /* Card Grid */
+        .grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+        }
+        .card h3 { margin-bottom: 0.75rem; color: #9ec9ff; }
+        .card ul {
+            flex: 1;
+            list-style: disc inside;
+            margin-bottom: 3rem;
+        }
+        .card ul li { margin-bottom: 0.5rem; }
+        .btn {
+            position: absolute;
+            bottom: 1rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            display: inline-block;
+            background: transparent;
+            color: #f0f5fa;
+            padding: 0.5rem 1rem;
+            max-width: 6rem;
+            border: 1px solid #ffd966;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-align: center;
+            font-weight: bold;
+        }
+        .btn:hover { 
+            color: #0b1a33;
+            background: #ffd966; 
+        }
+        /* Modal */
+        .modal-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.7);
+            display: none; align-items: center; justify-content: center;
+            z-index: 1000;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal {
+            background: #17202a;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 90%;
+            text-align: center;
+        }
+        .modal h3 { margin-bottom: 1rem; color: #aad4ff; }
+        .modal .btn { margin-top: 1rem; }
+        /* Section Spacing */
+        section { margin-bottom: 3rem; }
+        /* Footer */
+        footer { text-align: center; padding: 1rem 0; font-size: 0.9rem; color: #729ecf; }
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .card { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="mouseanimation"></div>
+    <div class="container">
+        <h1>Marketplace Services</h1>
+        <nav>
+            <a href="#roblox">ROBLOX</a>
+            <a href="#discord">DISCORD</a>
+            <a href="#social">Mạng Xã Hội</a>
+            <a href="#automation">Crawl & Auto</a>
+            <a href="#windows">Windows Tools</a>
+        </nav>
+
+        <!-- ROBLOX Section -->
+        <section id="roblox">
+            <h2>ROBLOX Services</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Cày Thuê Roblox</h3>
+                    <ul>
+                        <li>Bloxfruit</li>
+                        <li>Bee Swarm</li>
+                        <li>DeadRail</li>
+                    </ul>
+                    <button class="btn buy-btn">Mua</button>
+                </div>
+                <div class="card">
+                    <h3>Vật Phẩm Roblox</h3>
+                    <ul>
+                        <li>Robux & Gamepass giá rẻ</li>
+                        <li>Trái ác quỷ 1 lần (bloxfruit)</li>
+                    </ul>
+                    <button class="btn buy-btn">Mua</button>
+                </div>
+                <div class="card">
+                    <h3>Script Hack</h3>
+                    <ul>
+                        <li>Tự động Farm, Collect</li>
+                        <li>Các tính năng khác theo nhu cầu</li>
+                        <li>Liên kết được qua Discord</li>
+                    </ul>
+                    <button class="btn buy-btn">Mua</button>
+                </div>
+                <div class="card">
+                    <h3>Exploit Hack (Android)</h3>
+                    <ul>
+                        <li>App autobypass (Codex)</li>
+                        <li>APK Exploit (Bypass key)</li>
+                    </ul>
+                    <button class="btn buy-btn">Mua</button>
+                </div>
+                <div class="card">
+                    <h3>Cho Thuê</h3>
+                    <ul>
+                        <li>Script bloxfruit (Banana, Azure, Maru)</li>
+                        <li>App manager LDplayer, Mumu (Yummy)</li>
+                    </ul>
+                    <button class="btn buy-btn">Thuê</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- DISCORD Section -->
+        <section id="discord">
+            <h2>DISCORD Services</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Bot Discord</h3>
+                    <ul>
+                        <li>Level System, Ticket, Game</li>
+                        <li>Music, Voice TsT, AI Agent</li>
+                        <li>Giveaway, Poll</li>
+                    </ul>
+                    <button class="btn buy-btn">Mua</button>
+                </div>
+                <div class="card">
+                    <h3>SelfBot Discord</h3>
+                    <ul>
+                        <li>Dynamic Status</li>
+                        <li>Dynamic Guildtag</li>
+                        <li>Raid, Spam, Mass</li>
+                        <li>RPC</li>
+                        <li>Auto Join No-Req Giveaway</li>
+                    </ul>
+                    <button class="btn buy-btn">Mua</button>
+                </div>
+                <div class="card">
+                    <h3>Discord Quests</h3>
+                    <ul>
+                        <li>Hoàn thành các nhiệm vụ của Discord Quests</li>
+                    </ul>
+                    <button class="btn buy-btn">Mua</button>
+                </div>
+                <div class="card">
+                    <h3>Discord Badges</h3>
+                    <ul>
+                        <li>Lấy huy hiệu Developer Active hoặc Completed a Quest</li>
+                    </ul>
+                    <button class="btn buy-btn">Mua</button>
+                </div>
+                <div class="card">
+                    <h3>Server Setup</h3>
+                    <ul>
+                        <li>Trang trí máy chủ</li>
+                        <li>Thiết lập các setting cơ bản</li>
+                        <li>Xây dựng kênh Chat, Voice, Stage, Boost,...</li>
+                        <li>Tạo và chỉnh sửa vai trò theo nhu cầu</li>
+                    </ul>
+                    <button class="btn buy-btn">Mua</button>
+                </div>
+                <div class="card">
+                    <h3>Bot Setup</h3>
+                    <ul>
+                        <li>Chatting & Voice System, Auto Welcome,...</li>
+                        <li>Ticket mua bán hàng, webhook, website</li>
+                        <li>Cài đặt bot và các lệnh bot sẵn theo nhu cầu</li>
+                        <li>Các chức năng tự động</li>
+                    </ul>
+                    <button class="btn buy-btn">Mua</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social & Automation Section -->
+        <section id="social">
+            <h2>Mạng Xã Hội</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Auto Complete Azota</h3>
+                    <ul>
+                        <li>Tự động hoàn thành các bài tập dài</li>
+                        <li>Tự động học nếu có sẵn đáp án sau khi có điểm</li>
+                        <li>Tránh được Cloudfare</li>
+                    </ul>
+                    <button class="btn buy-btn">Mua</button>
+                </div>
+                <div class="card">
+                    <h3>Tài khoản & Dịch vụ</h3>
+                    <ul>
+                        <li>Discord Guildtag</li>
+                        <li>Hộp Zalo</li>
+                        <li>Buff tương tác (Like, Share, View, Tim)</li>
+                    </ul>
+                    <button class="btn buy-btn">Mua</button>
+                </div>
+                <div class="card">
+                    <h3>Web Crawling & API</h3>
+                    <ul>
+                        <li>Facebook Stories</li>
+                        <li>Giá vàng</li>
+                        <li>Discord Channel</li>
+                    </ul>
+                    <button class="btn buy-btn">Mua</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Windows Automation -->
+        <section id="windows">
+            <h2>Windows Tools</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Tự Động Hóa Máy Tính</h3>
+                    <ul>
+                        <li>Phím tắt bật/tắt icon desktop</li>
+                        <li>Phần mềm Spammer</li>
+                        <li>Delete Tempfile</li>
+                    </ul>
+                    <button class="btn buy-btn">Mua</button>
+                </div>
+                <div class="card">
+                    <h3>Dịch Vụ Window</h3>
+                    <ul>
+                        <li>Active Windows</li>
+                        <li>Cài Powerpoint, Excel, Word,...</li>
+                    </ul>
+                    <button class="btn buy-btn">Mua</button>
+                </div>
+            </div>
+        </section>
+
+        <footer>&copy; 2025 Marketplace Services. All rights reserved.</footer>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <h3>Tham gia Discord</h3>
+            <p>Nhấn nút dưới để vào server Discord của chúng tôi và thảo luận chi tiết.</p>
+            <a href="https://discord.gg/WffnP4sQ4K" target="_blank" class="btn">Vào Discord</a>
+        </div>
+    </div>
+
+    <script>
+        // Background mouse move effect
+        function createParticle (x, y) {
+        var size = Math.random() * 50 + 10;
+        
+        x -= (size / 2);
+        y -= (size / 2);
+        
+        var particle = document.createElement('mouseanimation');
+        document.body.appendChild(particle);
+        
+        TweenMax.set(particle, {
+            x: x, 
+            y: y,
+            width: size,
+            height: size,
+            background: function () {
+            return `hsl(${Math.random() *90+200}, 50%, 50%)`
+            }
+        });
+        TweenMax.to(particle, Math.random() * 2 + 1, {
+            x: x + (Math.random() - 0.5) * 200,
+            y: y + (Math.random() - 0.5) * 200,
+            opacity: 0,
+            scale:0,
+            ease: Power2.easeOut,
+            onComplete: function () {
+            document.body.removeChild(particle);
+            }
+        })
+        }
+
+        window.addEventListener('mousemove', function (e) {
+        var x = e.clientX;
+        var y = e.clientY;
+        createParticle(x, y);
+        });
+        document.body.addEventListener('touchmove', function (e) {
+        var x = e.touches[0].clientX;
+        var y = e.touches[0].clientY;
+        e.preventDefault();
+        createParticle(x, y);
+        });
+
+        // Modal logic
+        const buyBtns = document.querySelectorAll('.buy-btn');
+        const overlay = document.getElementById('modalOverlay');
+        buyBtns.forEach(btn => btn.addEventListener('click', e => {
+            overlay.classList.add('active');
+        }));
+        overlay.addEventListener('click', () => {
+            overlay.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
