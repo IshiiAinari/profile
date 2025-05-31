@@ -601,14 +601,19 @@ header p {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.music-toggle:hover {
+.music-toggle:hover .volume-container {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
     background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .music-toggle:not(:hover) .volume-container {
     transition-delay: .3s;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-50%) translateX(-10px);
 }
 
 .music-toggle i {
