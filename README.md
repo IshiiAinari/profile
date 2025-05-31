@@ -1,29 +1,29 @@
-# Personal Profile Website
+# Website Hồ Sơ Cá Nhân
 
-A modern and interactive personal profile website featuring dynamic animations, music controls, and a sleek design.
+Một trang web hồ sơ cá nhân hiện đại với các hiệu ứng động, điều khiển nhạc và thiết kế đẹp mắt.
 
-## Features
+## Tính Năng
 
-- 🌊 Smooth wave animations
-- 🎵 Interactive music player with volume controls
-- 🎨 Beautiful gradient color schemes
-- 💫 Loading animations
-- 📱 Responsive design
+- 🌊 Hiệu ứng sóng mượt mà
+- 🎵 Trình phát nhạc tương tác với điều khiển âm lượng
+- 🎨 Bảng màu gradient đẹp mắt
+- 💫 Hiệu ứng loading
+- 📱 Thiết kế tương thích đa thiết bị
 
-## Technologies Used
+## Công Nghệ Sử Dụng
 
 - HTML5
-- CSS3 (with custom animations)
+- CSS3 (với các animation tùy chỉnh)
 - JavaScript
-- Modern UI/UX principles
+- Nguyên tắc UI/UX hiện đại
 
-## Setup
+## Cách Cài Đặt
 
-1. Clone the repository
-2. Open `index.html` in your browser
-3. Enjoy the interactive experience!
+1. Clone repository này
+2. Mở file `index.html` trong trình duyệt
+3. Trải nghiệm website!
 
-## Project Structure
+## Cấu Trúc Dự Án
 
 ```
 profile/
@@ -32,10 +32,10 @@ profile/
 └── source/
 ```
 
-## Author
+## Tác Giả
 
-Created by IshiiAinari
+Được tạo bởi IshiiAinari
 
-## License
+## Giấy Phép
 
-This project is open source and available under the MIT License. 
+Dự án này là mã nguồn mở và được phân phối dưới Giấy phép MIT. 
